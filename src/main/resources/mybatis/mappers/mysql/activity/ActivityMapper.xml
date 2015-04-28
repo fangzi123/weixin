@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micro.rent.dbaccess.dao.activity.ActivityDao" >
+
+	<resultMap type="com.micro.rent.dbaccess.entity.activity.Activity" id="baseResultMap">
+        <id column="id" property="activityId" jdbcType="INTEGER"/>
+		<result column="activity_name" property="activityName" jdbcType="VARCHAR"/>
+		<result column="start_time" property="startTime" jdbcType="BIGINT"/>
+		<result column="end_time" property="endTime" jdbcType="BIGINT"/>
+		<result column="activity_desc" property="activityDesc" jdbcType="VARCHAR"/>
+		<result column="create_time" property="createTime" jdbcType="BIGINT"/>
+		<result column="update_time" property="updateTime" jdbcType="BIGINT"/>
+        <result column="activity_url" property="activityUrl" jdbcType="VARCHAR"/>
+	</resultMap>
+
+    <resultMap type="com.micro.rent.dbaccess.entity.activity.UserActivity" id="userActivityResultMap">
+        <result column="id" property="activityId" jdbcType="INTEGER"/>
+        <result column="activity_name" property="activityName" jdbcType="VARCHAR"/>
+        <result column="start_time" property="startTime" jdbcType="BIGINT"/>
+        <result column="end_time" property="endTime" jdbcType="BIGINT"/>
+        <result column="activity_desc" property="activityDesc" jdbcType="VARCHAR"/>
+        <result column="reward_type" property="rewardType" jdbcType="CHAR"/>
+        <result column="reward" property="reward" jdbcType="INTEGER"/>
+        <result column="is_use" property="isUse" jdbcType="CHAR"/>
+        <result column="user_reward" property="userReward" jdbcType="INTEGER"/>
+        <result column="activity_url" property="activityUrl" jdbcType="VARCHAR"/>
+        <result column="weixin_id" property="weixinId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 取得活动信息 -->
+	<select id="getActivityInfo" parameterType="int" resultMap="baseResultMap"> 
+		select
+		    id,
+		    activity_name,
+		    start_time,
+		    end_time,
+		    activity_desc,
+            activity_url,
+		    create_time,
+		    update_time
+		from
+		    t_activity
+		where
+		    id = #{activityId}
+	</select>
+
+    <!-- 取得用户预约的活动信息 -->
+    <select id="getActivityInfoListByWeixinId" parameterType="string" resultMap="userActivityResultMap">
+        select
+            t2.id,
+            t2.activity_name,
+            t2.start_time,
+            t2.end_time,
+            t2.activity_desc,
+            t3.reward_type,
+            t3.reward,
+            t1.is_use,
+            t1.reward as user_reward,
+            t1.weixin_id,
+            t2.activity_url
+        from
+            t_activity_order t1,
+            t_activity t2,
+            t_activity_reward t3
+        where
+            t1.weixin_id = #{weixinId}
+            and t1.activity_id = t2.id
+            and t1.activity_id = t3.activity_id
+        order by
+            t2.update_time desc
+    </select>
+</mapper>

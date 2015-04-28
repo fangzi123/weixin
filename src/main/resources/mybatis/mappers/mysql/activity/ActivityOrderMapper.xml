@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micro.rent.dbaccess.dao.activity.ActivityOrderDao" >
+
+	<resultMap type="com.micro.rent.dbaccess.entity.activity.ActivityOrder" id="baseResultMap">
+        <id column="id" property="activityOrderId" jdbcType="INTEGER"/>
+        <result column="activity_id" property="activityId" jdbcType="INTEGER"/>
+        <result column="weixin_id" property="weixinId" jdbcType="VARCHAR"/>
+        <result column="telphone" property="telephone" jdbcType="VARCHAR"/>
+        <result column="is_use" property="isUse" jdbcType="CHAR"/>
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="CHAR"/>
+        <result column="head_img_url" property="headImgUrl" jdbcType="VARCHAR"/>
+        <result column="reward" property="reward" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="BIGINT"/>
+        <result column="update_time" property="updateTime" jdbcType="BIGINT"/>
+	</resultMap>
+
+    <!-- 取得活动预约信息 -->
+	<select id="getActivityOrderInfo" parameterType="map" resultMap="baseResultMap"> 
+		select
+		    id,
+		    activity_id,
+		    weixin_id,
+		    telphone,
+		    is_use,
+		    nick_name,
+		    gender,
+            head_img_url,
+            reward,
+		    create_time,
+		    update_time
+		from
+		    t_activity_order
+		where
+		    activity_id = #{activityId}
+		    and weixin_id = #{weixinId}
+	</select>
+
+    <!-- 增加活动预约 -->
+    <insert id="insertActivityOrder" parameterType="com.micro.rent.dbaccess.entity.activity.ActivityOrder">
+        insert into t_activity_order
+            (
+                activity_id,
+                weixin_id,
+                telphone,
+                is_use,
+                nick_name,
+                gender,
+                head_img_url,
+                reward,
+                create_time,
+                update_time
+            )
+            values(
+                #{activityId},
+                #{weixinId},
+                #{telephone},
+                #{isUse},
+                #{nickName},
+                #{gender},
+                #{headImgUrl},
+                #{reward},
+                #{createTime},
+                #{updateTime}
+            )
+    </insert>
+
+    <!-- 更新活动获得奖励的使用状态 -->
+    <update id="updateActivityOrderIsUse" parameterType="com.micro.rent.dbaccess.entity.activity.ActivityOrder">
+        update
+            t_activity_order
+        set
+            is_use = #{isUse},
+            update_time = #{updateTime}
+        where
+            activity_id = #{activityId}
+            and weixin_id = #{weixinId}
+    </update>
+
+</mapper>

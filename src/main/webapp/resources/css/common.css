@@ -1,0 +1,144 @@
+/* 页面背景 */
+html {
+	height: 100%;
+	background-color: #F6F6F6;
+}
+body {
+	height: 100%;
+	background-color: #F6F6F6;
+	font-size: 15px;
+}
+
+/* 页面顶部 */
+#div_head {
+	height: 4em;
+	background-color: #F39600;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* 页面标题 */
+.div_title {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+/* 内部元素居中 */
+.woniu-box-center {
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+}
+
+/* 内部元素靠下 */
+.woniu-box-end {
+	display: -webkit-box;
+	-webkit-box-align: end;
+}
+
+/* 内部元素靠右居中 */
+.woniu-box-right {
+	display: -webkit-box;
+	-webkit-box-pack: end;
+	-webkit-box-align: center;
+}
+
+/* 下拉框组 */
+select[name ^= 'woniu_select'] {
+	width: 26%; 
+	display: inline;
+	height: 3em;
+	text-align: center;
+}
+label {
+	width: 5%;
+	text-align: center;
+}
+
+/* 背景色 */
+.background-white {
+	background_white: #FFFFFF;
+}
+
+/* 横线 */
+hr {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-width: 1px;
+	width: 100%;
+	border-color: #D2D2D2;
+}
+
+.hide {
+	display: none;
+}
+
+/* 字体  */
+	/* 字体大小  */
+	.font-small {
+		font-size: 13px;
+	}
+	.font-normal {
+		font-size: 15px;
+	}
+	.font-big {
+		font-size: 18px;
+	}
+
+	/* 字体颜色 */
+	.font-white {
+		color: #FFFFFF;
+	}
+	.font-gray {
+	color: #898989;
+	}
+	.font-yellow {
+		color: #F39600;
+	}
+/* 按钮 */
+	/* 黄色按钮 */
+	.btn-yellow {
+		background-color: #F39600;
+		color: #FFFFFF;
+	}
+	/* 屏蔽Bootstrap关于按钮的一些特效 */
+	.btn:hover, .btn:focus, .btn.focus {
+		color: #FFFFFF;
+	}
+	.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+		outline:0px;
+		outline-offset: 0px;
+	}
+	/* 按钮高度  */
+	.btn-big {
+		height: 44px;
+	}
+	.btn-normal {
+		height: 34px;
+	}
+
+/* 整体布局 */
+.container-fluid {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #FFFFFF;
+}
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+[class *= 'col-xs-'] {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+/* 小标题  */
+h6 {
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	text-indent: 0.4em;
+}
