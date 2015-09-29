@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="t_house" >
+  <resultMap id="BaseResultMap" type="com.micro.rent.dbaccess.entity.myrent.THouse" >
+    <id column="T_House_ID" property="tHouseId" jdbcType="VARCHAR" />
+    <result column="House_ID" property="houseId" jdbcType="VARCHAR" />
+    <result column="Project_ID" property="projectId" jdbcType="VARCHAR" />
+    <result column="Status" property="status" jdbcType="VARCHAR" />
+    <result column="Rent_Begin_Date" property="rentBeginDate" jdbcType="VARCHAR" />
+    <result column="Rent_End_Date" property="rentEndDate" jdbcType="VARCHAR" />
+    <result column="Rent_Avail_Period" property="rentAvailPeriod" jdbcType="VARCHAR" />
+    <result column="Province_ID" property="provinceId" jdbcType="VARCHAR" />
+    <result column="City_Code" property="cityCode" jdbcType="VARCHAR" />
+    <result column="District_Code" property="districtCode" jdbcType="VARCHAR" />
+    <result column="Community_Name" property="communityName" jdbcType="VARCHAR" />
+    <result column="Doorplate" property="doorplate" jdbcType="VARCHAR" />
+    <result column="Building_NO" property="buildingNo" jdbcType="VARCHAR" />
+    <result column="Room_Number" property="roomNumber" jdbcType="VARCHAR" />
+    <result column="Use_Area" property="useArea" jdbcType="DECIMAL" />
+    <result column="layout" property="layout" jdbcType="VARCHAR" />
+    <result column="Hall_Quantity" property="hallQuantity" jdbcType="INTEGER" />
+    <result column="Toilet_Quantity" property="toiletQuantity" jdbcType="INTEGER" />
+    <result column="Kitchen_Quantity" property="kitchenQuantity" jdbcType="INTEGER" />
+    <result column="Floor" property="floor" jdbcType="DECIMAL" />
+    <result column="Total_Floor" property="totalFloor" jdbcType="DECIMAL" />
+    <result column="Orientation" property="orientation" jdbcType="VARCHAR" />
+    <result column="Area" property="area" jdbcType="DECIMAL" />
+    <result column="Long_Price" property="longPrice" jdbcType="DECIMAL" />
+    <result column="Short_Price" property="shortPrice" jdbcType="DECIMAL" />
+    <result column="Payment_Type" property="paymentType" jdbcType="VARCHAR" />
+    <result column="Renovation" property="renovation" jdbcType="VARCHAR" />
+    <result column="Furniture" property="furniture" jdbcType="VARCHAR" />
+    <result column="Appliances" property="appliances" jdbcType="VARCHAR" />
+    <result column="TV" property="tv" jdbcType="VARCHAR" />
+    <result column="Internet" property="internet" jdbcType="VARCHAR" />
+    <result column="Water_Price" property="waterPrice" jdbcType="DECIMAL" />
+    <result column="Electric_Price" property="electricPrice" jdbcType="DECIMAL" />
+    <result column="Warm_Price" property="warmPrice" jdbcType="DECIMAL" />
+    <result column="Gas_Price" property="gasPrice" jdbcType="DECIMAL" />
+    <result column="Refrigeration_price" property="refrigerationPrice" jdbcType="DECIMAL" />
+    <result column="Release_Time" property="releaseTime" jdbcType="DATE" />
+    <result column="Rental_Type" property="rentalType" jdbcType="VARCHAR" />
+    <result column="Telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="Shortest_period" property="shortestPeriod" jdbcType="INTEGER" />
+    <result column="flag" property="flag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    T_House_ID, House_ID, Project_ID, Status, Rent_Begin_Date, Rent_End_Date, Rent_Avail_Period, 
+    Province_ID, City_Code, District_Code, Community_Name, Doorplate, Building_NO, Room_Number, 
+    Use_Area, layout, Hall_Quantity, Toilet_Quantity, Kitchen_Quantity, Floor, Total_Floor, 
+    Orientation, Area, Long_Price, Short_Price, Payment_Type, Renovation, Furniture, 
+    Appliances, TV, Internet, Water_Price, Electric_Price, Warm_Price, Gas_Price, Refrigeration_price, 
+    Release_Time, Rental_Type, Telephone, Shortest_period, flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_house
+    where T_House_ID = #{tHouseId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_house
+    where T_House_ID = #{tHouseId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.micro.rent.dbaccess.entity.myrent.THouse" >
+    insert into t_house (T_House_ID, House_ID, Project_ID, 
+      Status, Rent_Begin_Date, Rent_End_Date, 
+      Rent_Avail_Period, Province_ID, City_Code, 
+      District_Code, Community_Name, Doorplate, 
+      Building_NO, Room_Number, Use_Area, 
+      layout, Hall_Quantity, Toilet_Quantity, 
+      Kitchen_Quantity, Floor, Total_Floor, 
+      Orientation, Area, Long_Price, 
+      Short_Price, Payment_Type, Renovation, 
+      Furniture, Appliances, TV, 
+      Internet, Water_Price, Electric_Price, 
+      Warm_Price, Gas_Price, Refrigeration_price, 
+      Release_Time, Rental_Type, Telephone, 
+      Shortest_period, flag)
+    values (#{tHouseId,jdbcType=VARCHAR}, #{houseId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{rentBeginDate,jdbcType=VARCHAR}, #{rentEndDate,jdbcType=VARCHAR}, 
+      #{rentAvailPeriod,jdbcType=VARCHAR}, #{provinceId,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{districtCode,jdbcType=VARCHAR}, #{communityName,jdbcType=VARCHAR}, #{doorplate,jdbcType=VARCHAR}, 
+      #{buildingNo,jdbcType=VARCHAR}, #{roomNumber,jdbcType=VARCHAR}, #{useArea,jdbcType=DECIMAL}, 
+      #{layout,jdbcType=VARCHAR}, #{hallQuantity,jdbcType=INTEGER}, #{toiletQuantity,jdbcType=INTEGER}, 
+      #{kitchenQuantity,jdbcType=INTEGER}, #{floor,jdbcType=DECIMAL}, #{totalFloor,jdbcType=DECIMAL}, 
+      #{orientation,jdbcType=VARCHAR}, #{area,jdbcType=DECIMAL}, #{longPrice,jdbcType=DECIMAL}, 
+      #{shortPrice,jdbcType=DECIMAL}, #{paymentType,jdbcType=VARCHAR}, #{renovation,jdbcType=VARCHAR}, 
+      #{furniture,jdbcType=VARCHAR}, #{appliances,jdbcType=VARCHAR}, #{tv,jdbcType=VARCHAR}, 
+      #{internet,jdbcType=VARCHAR}, #{waterPrice,jdbcType=DECIMAL}, #{electricPrice,jdbcType=DECIMAL}, 
+      #{warmPrice,jdbcType=DECIMAL}, #{gasPrice,jdbcType=DECIMAL}, #{refrigerationPrice,jdbcType=DECIMAL}, 
+      #{releaseTime,jdbcType=DATE}, #{rentalType,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{shortestPeriod,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.micro.rent.dbaccess.entity.myrent.THouse" >
+    insert into t_house
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tHouseId != null" >
+        T_House_ID,
+      </if>
+      <if test="houseId != null" >
+        House_ID,
+      </if>
+      <if test="projectId != null" >
+        Project_ID,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="rentBeginDate != null" >
+        Rent_Begin_Date,
+      </if>
+      <if test="rentEndDate != null" >
+        Rent_End_Date,
+      </if>
+      <if test="rentAvailPeriod != null" >
+        Rent_Avail_Period,
+      </if>
+      <if test="provinceId != null" >
+        Province_ID,
+      </if>
+      <if test="cityCode != null" >
+        City_Code,
+      </if>
+      <if test="districtCode != null" >
+        District_Code,
+      </if>
+      <if test="communityName != null" >
+        Community_Name,
+      </if>
+      <if test="doorplate != null" >
+        Doorplate,
+      </if>
+      <if test="buildingNo != null" >
+        Building_NO,
+      </if>
+      <if test="roomNumber != null" >
+        Room_Number,
+      </if>
+      <if test="useArea != null" >
+        Use_Area,
+      </if>
+      <if test="layout != null" >
+        layout,
+      </if>
+      <if test="hallQuantity != null" >
+        Hall_Quantity,
+      </if>
+      <if test="toiletQuantity != null" >
+        Toilet_Quantity,
+      </if>
+      <if test="kitchenQuantity != null" >
+        Kitchen_Quantity,
+      </if>
+      <if test="floor != null" >
+        Floor,
+      </if>
+      <if test="totalFloor != null" >
+        Total_Floor,
+      </if>
+      <if test="orientation != null" >
+        Orientation,
+      </if>
+      <if test="area != null" >
+        Area,
+      </if>
+      <if test="longPrice != null" >
+        Long_Price,
+      </if>
+      <if test="shortPrice != null" >
+        Short_Price,
+      </if>
+      <if test="paymentType != null" >
+        Payment_Type,
+      </if>
+      <if test="renovation != null" >
+        Renovation,
+      </if>
+      <if test="furniture != null" >
+        Furniture,
+      </if>
+      <if test="appliances != null" >
+        Appliances,
+      </if>
+      <if test="tv != null" >
+        TV,
+      </if>
+      <if test="internet != null" >
+        Internet,
+      </if>
+      <if test="waterPrice != null" >
+        Water_Price,
+      </if>
+      <if test="electricPrice != null" >
+        Electric_Price,
+      </if>
+      <if test="warmPrice != null" >
+        Warm_Price,
+      </if>
+      <if test="gasPrice != null" >
+        Gas_Price,
+      </if>
+      <if test="refrigerationPrice != null" >
+        Refrigeration_price,
+      </if>
+      <if test="releaseTime != null" >
+        Release_Time,
+      </if>
+      <if test="rentalType != null" >
+        Rental_Type,
+      </if>
+      <if test="telephone != null" >
+        Telephone,
+      </if>
+      <if test="shortestPeriod != null" >
+        Shortest_period,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tHouseId != null" >
+        #{tHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="houseId != null" >
+        #{houseId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBeginDate != null" >
+        #{rentBeginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rentEndDate != null" >
+        #{rentEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rentAvailPeriod != null" >
+        #{rentAvailPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="communityName != null" >
+        #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="doorplate != null" >
+        #{doorplate,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingNo != null" >
+        #{buildingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="roomNumber != null" >
+        #{roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="useArea != null" >
+        #{useArea,jdbcType=DECIMAL},
+      </if>
+      <if test="layout != null" >
+        #{layout,jdbcType=VARCHAR},
+      </if>
+      <if test="hallQuantity != null" >
+        #{hallQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="toiletQuantity != null" >
+        #{toiletQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="kitchenQuantity != null" >
+        #{kitchenQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="floor != null" >
+        #{floor,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFloor != null" >
+        #{totalFloor,jdbcType=DECIMAL},
+      </if>
+      <if test="orientation != null" >
+        #{orientation,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=DECIMAL},
+      </if>
+      <if test="longPrice != null" >
+        #{longPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shortPrice != null" >
+        #{shortPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="renovation != null" >
+        #{renovation,jdbcType=VARCHAR},
+      </if>
+      <if test="furniture != null" >
+        #{furniture,jdbcType=VARCHAR},
+      </if>
+      <if test="appliances != null" >
+        #{appliances,jdbcType=VARCHAR},
+      </if>
+      <if test="tv != null" >
+        #{tv,jdbcType=VARCHAR},
+      </if>
+      <if test="internet != null" >
+        #{internet,jdbcType=VARCHAR},
+      </if>
+      <if test="waterPrice != null" >
+        #{waterPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="electricPrice != null" >
+        #{electricPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="warmPrice != null" >
+        #{warmPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="gasPrice != null" >
+        #{gasPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="refrigerationPrice != null" >
+        #{refrigerationPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="releaseTime != null" >
+        #{releaseTime,jdbcType=DATE},
+      </if>
+      <if test="rentalType != null" >
+        #{rentalType,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="shortestPeriod != null" >
+        #{shortestPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.micro.rent.dbaccess.entity.myrent.THouse" >
+    update t_house
+    <set >
+      <if test="houseId != null" >
+        House_ID = #{houseId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        Project_ID = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBeginDate != null" >
+        Rent_Begin_Date = #{rentBeginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rentEndDate != null" >
+        Rent_End_Date = #{rentEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rentAvailPeriod != null" >
+        Rent_Avail_Period = #{rentAvailPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        Province_ID = #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        City_Code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        District_Code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="communityName != null" >
+        Community_Name = #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="doorplate != null" >
+        Doorplate = #{doorplate,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingNo != null" >
+        Building_NO = #{buildingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="roomNumber != null" >
+        Room_Number = #{roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="useArea != null" >
+        Use_Area = #{useArea,jdbcType=DECIMAL},
+      </if>
+      <if test="layout != null" >
+        layout = #{layout,jdbcType=VARCHAR},
+      </if>
+      <if test="hallQuantity != null" >
+        Hall_Quantity = #{hallQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="toiletQuantity != null" >
+        Toilet_Quantity = #{toiletQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="kitchenQuantity != null" >
+        Kitchen_Quantity = #{kitchenQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="floor != null" >
+        Floor = #{floor,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFloor != null" >
+        Total_Floor = #{totalFloor,jdbcType=DECIMAL},
+      </if>
+      <if test="orientation != null" >
+        Orientation = #{orientation,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        Area = #{area,jdbcType=DECIMAL},
+      </if>
+      <if test="longPrice != null" >
+        Long_Price = #{longPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shortPrice != null" >
+        Short_Price = #{shortPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentType != null" >
+        Payment_Type = #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="renovation != null" >
+        Renovation = #{renovation,jdbcType=VARCHAR},
+      </if>
+      <if test="furniture != null" >
+        Furniture = #{furniture,jdbcType=VARCHAR},
+      </if>
+      <if test="appliances != null" >
+        Appliances = #{appliances,jdbcType=VARCHAR},
+      </if>
+      <if test="tv != null" >
+        TV = #{tv,jdbcType=VARCHAR},
+      </if>
+      <if test="internet != null" >
+        Internet = #{internet,jdbcType=VARCHAR},
+      </if>
+      <if test="waterPrice != null" >
+        Water_Price = #{waterPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="electricPrice != null" >
+        Electric_Price = #{electricPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="warmPrice != null" >
+        Warm_Price = #{warmPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="gasPrice != null" >
+        Gas_Price = #{gasPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="refrigerationPrice != null" >
+        Refrigeration_price = #{refrigerationPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="releaseTime != null" >
+        Release_Time = #{releaseTime,jdbcType=DATE},
+      </if>
+      <if test="rentalType != null" >
+        Rental_Type = #{rentalType,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        Telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="shortestPeriod != null" >
+        Shortest_period = #{shortestPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where T_House_ID = #{tHouseId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.micro.rent.dbaccess.entity.myrent.THouse" >
+    update t_house
+    set House_ID = #{houseId,jdbcType=VARCHAR},
+      Project_ID = #{projectId,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=VARCHAR},
+      Rent_Begin_Date = #{rentBeginDate,jdbcType=VARCHAR},
+      Rent_End_Date = #{rentEndDate,jdbcType=VARCHAR},
+      Rent_Avail_Period = #{rentAvailPeriod,jdbcType=VARCHAR},
+      Province_ID = #{provinceId,jdbcType=VARCHAR},
+      City_Code = #{cityCode,jdbcType=VARCHAR},
+      District_Code = #{districtCode,jdbcType=VARCHAR},
+      Community_Name = #{communityName,jdbcType=VARCHAR},
+      Doorplate = #{doorplate,jdbcType=VARCHAR},
+      Building_NO = #{buildingNo,jdbcType=VARCHAR},
+      Room_Number = #{roomNumber,jdbcType=VARCHAR},
+      Use_Area = #{useArea,jdbcType=DECIMAL},
+      layout = #{layout,jdbcType=VARCHAR},
+      Hall_Quantity = #{hallQuantity,jdbcType=INTEGER},
+      Toilet_Quantity = #{toiletQuantity,jdbcType=INTEGER},
+      Kitchen_Quantity = #{kitchenQuantity,jdbcType=INTEGER},
+      Floor = #{floor,jdbcType=DECIMAL},
+      Total_Floor = #{totalFloor,jdbcType=DECIMAL},
+      Orientation = #{orientation,jdbcType=VARCHAR},
+      Area = #{area,jdbcType=DECIMAL},
+      Long_Price = #{longPrice,jdbcType=DECIMAL},
+      Short_Price = #{shortPrice,jdbcType=DECIMAL},
+      Payment_Type = #{paymentType,jdbcType=VARCHAR},
+      Renovation = #{renovation,jdbcType=VARCHAR},
+      Furniture = #{furniture,jdbcType=VARCHAR},
+      Appliances = #{appliances,jdbcType=VARCHAR},
+      TV = #{tv,jdbcType=VARCHAR},
+      Internet = #{internet,jdbcType=VARCHAR},
+      Water_Price = #{waterPrice,jdbcType=DECIMAL},
+      Electric_Price = #{electricPrice,jdbcType=DECIMAL},
+      Warm_Price = #{warmPrice,jdbcType=DECIMAL},
+      Gas_Price = #{gasPrice,jdbcType=DECIMAL},
+      Refrigeration_price = #{refrigerationPrice,jdbcType=DECIMAL},
+      Release_Time = #{releaseTime,jdbcType=DATE},
+      Rental_Type = #{rentalType,jdbcType=VARCHAR},
+      Telephone = #{telephone,jdbcType=VARCHAR},
+      Shortest_period = #{shortestPeriod,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=INTEGER}
+    where T_House_ID = #{tHouseId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -88,13 +88,18 @@
 		<jdk.version>1.7</jdk.version>
 		<repo.public.url>http://repo1.maven.org/maven2/</repo.public.url>
 		<repo.public.plugin.url>http://repo1.maven.org/maven2/</repo.public.plugin.url>
-<!-- 		<repo.public.url>http://192.168.12.216:2081/nexus/content/groups/public/</repo.public.url> -->
+<!-- 		<repo.public.url>http://localhost:8081/nexus/content/groups/public/</repo.public.url> -->
 <!-- 		<repo.public.plugin.url>http://192.168.12.216:2081/nexus/content/groups/public/</repo.public.plugin.url> -->
 	</properties>
 	
 	<!-- 依赖管理 -->
 	<dependencies>
 	
+<!-- 	    <dependency> -->
+<!-- 	        <groupId>myjar</groupId> -->
+<!-- 	        <artifactId>CCP_REST_SDK_JAVA</artifactId> -->
+<!-- 	        <version>2.6.3</version> -->
+<!-- 	    </dependency> -->
 	    <dependency>
 	        <groupId>org.springframework.batch</groupId>
 	        <artifactId>spring-batch-core</artifactId>
@@ -452,15 +457,15 @@
             <version>3.3</version>
         </dependency>
        	<dependency>
-  			<groupId>expect4j</groupId>
-  			<artifactId>expect4j</artifactId>
-  			<version>1.0</version>
+		  <groupId>com.github.cverges.expect4j</groupId>
+		  <artifactId>expect4j</artifactId>
+		  <version>1.6</version>
 		</dependency>
-		<dependency>
-  			<groupId>jakarta</groupId>
-  			<artifactId>oro</artifactId>
-  			<version>2.08</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!--   			<groupId>myjar.jakarta</groupId> -->
+<!--   			<artifactId>oro</artifactId> -->
+<!--   			<version>2.08</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- servlet & jsp -->
 		<dependency>
