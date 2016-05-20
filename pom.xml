@@ -460,7 +460,15 @@
 		  <groupId>com.github.cverges.expect4j</groupId>
 		  <artifactId>expect4j</artifactId>
 		  <version>1.6</version>
-		</dependency>
+		  <exclusions>
+		  	<exclusion>
+		  		<artifactId>
+		  			com.springsource.tcl.lang.jacl
+		  		</artifactId>
+		  		<groupId>net.sourceforge.tcljava</groupId>
+		  	</exclusion>
+		  </exclusions>
+       	</dependency>
 <!-- 		<dependency> -->
 <!--   			<groupId>myjar.jakarta</groupId> -->
 <!--   			<artifactId>oro</artifactId> -->
